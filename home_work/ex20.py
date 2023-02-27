@@ -1,6 +1,5 @@
 
-eng_vocabulary = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-rus_vocabulary = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
+eng_alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 eng_scrabble = {'AEIOULNSTR': 1,
                   'DG': 2,'BCMP': 3,
@@ -16,19 +15,17 @@ user_word = input('Enter the word: ').upper()
 
 def ScrabblePoints():
     count = 0
-    if user_word[0] in eng_vocabulary:
-        for char in user_word:
-            for key in eng_scrabble:
-                if char in key:
-                    count += eng_scrabble[key]
-        return count
-
-    if user_word[0] in rus_vocabulary:
-        for char in user_word:
-            for key in rus_scrabble:
-                if char in key:
-                    count += rus_scrabble[key]
-        return count
+    alphabet = ''
+    points_scrabble = dict()
+    if user_word[0] in eng_alphabet:
+        points_scrabble = eng_scrabble
+    else:
+        points_scrabble = rus_scrabble
+    for char in user_word:
+        for key in points_scrabble:
+            if char in key:
+                count += points_scrabble[key]
+    return count
 
 print('Your points:', ScrabblePoints())
 
