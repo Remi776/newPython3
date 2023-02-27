@@ -15,7 +15,6 @@ user_word = input('Enter the word: ').upper()
 
 def ScrabblePoints():
     count = 0
-    alphabet = ''
     points_scrabble = dict()
     if user_word[0] in eng_alphabet:
         points_scrabble = eng_scrabble
