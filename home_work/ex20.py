@@ -26,7 +26,8 @@ def ScrabblePoints():
     if user_word[0] in rus_vocabulary:
         for char in user_word:
             for key in rus_scrabble:
-                if char in key: count += rus_scrabble[key]
+                if char in key:
+                    count += rus_scrabble[key]
         return count
 
 print('Your points:', ScrabblePoints())
